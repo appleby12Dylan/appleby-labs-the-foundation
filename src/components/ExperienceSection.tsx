@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import uprightImg from "@/assets/upright-dashboard.jpg";
 import uprightWorkflow from "@/assets/upright-workflow.jpg";
 import uprightDealership from "@/assets/upright-dealership.jpg";
+import uprightService from "@/assets/upright-service.jpg";
+import uprightLot from "@/assets/upright-lot.jpg";
 import spotheroImg from "@/assets/spothero-app.jpg";
 import spotheroParking from "@/assets/spothero-parking.jpg";
 import spotheroCity from "@/assets/spothero-city.jpg";
+import spotheroGarage from "@/assets/spothero-garage.jpg";
+import spotheroAerial from "@/assets/spothero-aerial.jpg";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import { ExternalLink } from "lucide-react";
 
@@ -226,6 +230,40 @@ const ExperienceSection = () => {
                   />
                 </motion.a>
               </div>
+              <div className="grid grid-cols-2 gap-4">
+                <motion.a
+                  href="https://www.uprightconsulting.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={uprightService}
+                    alt="Service bay diagnostics"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+                <motion.a
+                  href="https://www.uprightconsulting.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={uprightLot}
+                    alt="Dealership vehicle lot"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+              </div>
             </div>
 
             {/* Diagram column */}
@@ -355,6 +393,40 @@ const ExperienceSection = () => {
                   <img
                     src={spotheroCity}
                     alt="Urban parking infrastructure"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <motion.a
+                  href="https://spothero.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={spotheroGarage}
+                    alt="SpotHero parking garage"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+                <motion.a
+                  href="https://spothero.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={spotheroAerial}
+                    alt="Urban traffic aerial view"
                     className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
                   />
                 </motion.a>
