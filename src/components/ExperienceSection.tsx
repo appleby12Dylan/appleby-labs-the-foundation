@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import uprightImg from "@/assets/upright-dashboard.jpg";
+import uprightWorkflow from "@/assets/upright-workflow.jpg";
+import uprightDealership from "@/assets/upright-dealership.jpg";
 import spotheroImg from "@/assets/spothero-app.jpg";
+import spotheroParking from "@/assets/spothero-parking.jpg";
+import spotheroCity from "@/assets/spothero-city.jpg";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import { ExternalLink } from "lucide-react";
 
@@ -171,22 +175,60 @@ const ExperienceSection = () => {
 
           {/* Upright visual content */}
           <div className="grid lg:grid-cols-2 gap-10 items-start">
-            <motion.a
-              href="https://www.uprightconsulting.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="block rounded-xl overflow-hidden border border-border shadow-gold group"
-            >
-              <img
-                src={uprightImg}
-                alt="The Upright Project dashboard"
-                className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-              />
-            </motion.a>
+            {/* Images column */}
+            <div className="space-y-4">
+              <motion.a
+                href="https://www.uprightconsulting.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="block rounded-xl overflow-hidden border border-border shadow-gold group"
+              >
+                <img
+                  src={uprightImg}
+                  alt="The Upright Project dashboard"
+                  className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              </motion.a>
+              <div className="grid grid-cols-2 gap-4">
+                <motion.a
+                  href="https://www.uprightconsulting.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={uprightWorkflow}
+                    alt="Technician workflow tools"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+                <motion.a
+                  href="https://www.uprightconsulting.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={uprightDealership}
+                    alt="Dealership environment"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+              </div>
+            </div>
 
+            {/* Diagram column */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -256,6 +298,7 @@ const ExperienceSection = () => {
 
           {/* SpotHero visual content */}
           <div className="grid lg:grid-cols-2 gap-10 items-start">
+            {/* Diagram column */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -265,21 +308,58 @@ const ExperienceSection = () => {
               <ArchitectureDiagram nodes={spotheroNodes} />
             </motion.div>
 
-            <motion.a
-              href="https://spothero.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="block rounded-xl overflow-hidden border border-border shadow-gold group"
-            >
-              <img
-                src={spotheroImg}
-                alt="SpotHero parking platform"
-                className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-              />
-            </motion.a>
+            {/* Images column */}
+            <div className="space-y-4">
+              <motion.a
+                href="https://spothero.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="block rounded-xl overflow-hidden border border-border shadow-gold group"
+              >
+                <img
+                  src={spotheroImg}
+                  alt="SpotHero parking platform"
+                  className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              </motion.a>
+              <div className="grid grid-cols-2 gap-4">
+                <motion.a
+                  href="https://spothero.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={spotheroParking}
+                    alt="Smart parking garage"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+                <motion.a
+                  href="https://spothero.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                >
+                  <img
+                    src={spotheroCity}
+                    alt="Urban parking infrastructure"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  />
+                </motion.a>
+              </div>
+            </div>
           </div>
         </div>
 
