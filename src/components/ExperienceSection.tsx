@@ -182,7 +182,7 @@ const ExperienceSection = () => {
             {/* Images column */}
             <div className="space-y-4">
               <motion.a
-                href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
@@ -198,7 +198,7 @@ const ExperienceSection = () => {
               </motion.a>
               <div className="grid grid-cols-2 gap-4">
                 <motion.a
-                  href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
@@ -214,7 +214,7 @@ const ExperienceSection = () => {
                   />
                 </motion.a>
                 <motion.a
-                  href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
@@ -232,7 +232,7 @@ const ExperienceSection = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <motion.a
-                  href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
@@ -248,7 +248,7 @@ const ExperienceSection = () => {
                   />
                 </motion.a>
                 <motion.a
-                  href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
