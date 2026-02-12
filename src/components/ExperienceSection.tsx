@@ -188,13 +188,18 @@ const ExperienceSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="block rounded-xl overflow-hidden border border-border shadow-gold group"
+                className="block relative rounded-xl overflow-hidden border border-border shadow-gold group hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow duration-500"
               >
                 <img
                   src={uprightImg}
                   alt="The Upright Project dashboard"
                   className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  <p className="text-sm font-display font-semibold text-white drop-shadow-lg">The Upright Project</p>
+                  <p className="text-xs text-white/70">Unified Dealership Platform</p>
+                </div>
               </motion.a>
               <div className="grid grid-cols-2 gap-4">
                 <motion.a
@@ -355,13 +360,18 @@ const ExperienceSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="block rounded-xl overflow-hidden border border-border shadow-gold group"
+                className="block relative rounded-xl overflow-hidden border border-border shadow-gold group hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow duration-500"
               >
                 <img
                   src={spotheroImg}
                   alt="SpotHero parking platform"
                   className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  <p className="text-sm font-display font-semibold text-white drop-shadow-lg">SpotHero</p>
+                  <p className="text-xs text-white/70">Parking Platform</p>
+                </div>
               </motion.a>
               <div className="grid grid-cols-2 gap-4">
                 <motion.a
