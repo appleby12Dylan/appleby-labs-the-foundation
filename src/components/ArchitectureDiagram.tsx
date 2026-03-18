@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
 
 interface FlowNodeProps {
   title: string;
@@ -56,20 +55,83 @@ const FlowConnector = ({ delay = 0 }: { delay?: number }) => (
   </motion.div>
 );
 
+const SplitConnector = ({ delay = 0 }: { delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3, delay }}
+    className="flex justify-center"
+  >
+    <div className="relative w-full max-w-[80%] h-8">
+      {/* Vertical down from parent */}
+      <div className="absolute left-1/2 top-0 w-px h-4 line-gold" />
+      {/* Horizontal bar */}
+      <div className="absolute left-[25%] right-[25%] top-4 h-px bg-gradient-to-r from-primary/40 via-primary to-primary/40" />
+      {/* Left vertical down */}
+      <div className="absolute left-[25%] top-4 w-px h-4 line-gold" />
+      {/* Right vertical down */}
+      <div className="absolute right-[25%] top-4 w-px h-4 line-gold" />
+    </div>
+  </motion.div>
+);
+
+const MergeConnector = ({ delay = 0 }: { delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3, delay }}
+    className="flex justify-center"
+  >
+    <div className="relative w-full max-w-[80%] h-8">
+      {/* Left vertical up */}
+      <div className="absolute left-[25%] top-0 w-px h-4 line-gold" />
+      {/* Right vertical up */}
+      <div className="absolute right-[25%] top-0 w-px h-4 line-gold" />
+      {/* Horizontal bar */}
+      <div className="absolute left-[25%] right-[25%] top-4 h-px bg-gradient-to-r from-primary/40 via-primary to-primary/40" />
+      {/* Vertical down to child */}
+      <div className="absolute left-1/2 top-4 w-px h-4 line-gold" />
+    </div>
+  </motion.div>
+);
+
+export type DiagramNode =
+  | ({ type?: "single" } & FlowNodeProps)
+  | { type: "parallel"; nodes: [FlowNodeProps, FlowNodeProps] };
+
 interface ArchitectureDiagramProps {
-  nodes: FlowNodeProps[];
+  nodes: DiagramNode[];
   className?: string;
 }
 
 const ArchitectureDiagram = ({ nodes, className }: ArchitectureDiagramProps) => {
   return (
     <div className={`max-w-md mx-auto space-y-0 ${className}`}>
-      {nodes.map((node, i) => (
-        <div key={i}>
-          {i > 0 && <FlowConnector delay={i * 0.15} />}
-          <FlowNode {...node} delay={i * 0.15} />
-        </div>
-      ))}
+      {nodes.map((node, i) => {
+        const isParallel = node.type === "parallel";
+        const prevIsParallel = i > 0 && nodes[i - 1].type === "parallel";
+
+        if (isParallel) {
+          return (
+            <div key={i}>
+              <SplitConnector delay={i * 0.15} />
+              <div className="grid grid-cols-2 gap-3">
+                <FlowNode {...node.nodes[0]} delay={i * 0.15} />
+                <FlowNode {...node.nodes[1]} delay={i * 0.15 + 0.1} />
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div key={i}>
+            {i > 0 && (prevIsParallel ? <MergeConnector delay={i * 0.15} /> : <FlowConnector delay={i * 0.15} />)}
+            <FlowNode {...(node as FlowNodeProps)} delay={i * 0.15} />
+          </div>
+        );
+      })}
     </div>
   );
 };
