@@ -3,84 +3,86 @@ import { motion } from "framer-motion";
 const skillCategories = [
   {
     label: "Languages",
-    skills: ["TypeScript", "JavaScript (ES6+)", "Python", "C#", "Ruby", "SQL", "HTML5", "CSS3/SCSS"],
+    skills: ["TypeScript", "JavaScript (ES6+)", "Python", "PHP", "SQL", "HTML5", "CSS3/SCSS"],
   },
   {
     label: "Frontend",
     skills: [
-      "React", "Next.js", "Vue.js", "Angular", "TailwindCSS", "Framer Motion",
-      "Component Architecture", "SPA Development", "State Management",
-      "Responsive Design", "Accessibility (WCAG)", "Cross-Browser Compatibility",
-      "Design Systems", "Storybook",
+      "React", "React Native", "Next.js", "Angular", "Vue.js", "TailwindCSS",
+      "Component Architecture", "Responsive UI", "State Management",
+      "Accessibility", "Performance Optimization", "Design Systems",
     ],
   },
   {
     label: "Backend & APIs",
     skills: [
-      "Node.js", "Express", "FastAPI", "Django", "Flask", "Ruby on Rails",
-      ".NET Core", "ASP.NET", "tRPC", "REST APIs", "GraphQL",
-      "Microservices", "Serverless", "Event-Driven Architecture",
-      "ActiveRecord", "Entity Framework", "Dapper", "Prisma", "Sidekiq",
+      "Node.js", "NestJS", "Express", "Next.js API Routes",
+      "Python", "Django", "FastAPI", "PHP", "Laravel",
+      "REST APIs", "GraphQL", "WebSockets", "Webhooks",
+      "Caching Strategies",
+    ],
+  },
+  {
+    label: "Mobile",
+    skills: [
+      "React Native", "Flutter", "iOS", "Android",
+      "Android Auto", "Apple CarPlay",
+      "Redux", "MobX", "Push Notifications",
     ],
   },
   {
     label: "Cloud & DevOps",
     skills: [
-      "AWS", "Lambda", "ECS", "SQS", "EventBridge", "API Gateway",
-      "DynamoDB", "RDS", "S3", "CloudWatch",
-      "GCP", "Azure", "Docker", "Kubernetes",
-      "Terraform", "CI/CD", "GitHub Actions", "Jenkins", "CircleCI",
-      "Azure DevOps", "GitLab CI",
+      "AWS", "GCP", "Docker", "Kubernetes", "Terraform",
+      "CI/CD Pipelines", "GitHub Actions", "Jenkins", "CircleCI",
+      "CDK", "Sentry", "Datadog", "Observability",
     ],
   },
   {
     label: "Data & Storage",
     skills: [
-      "PostgreSQL", "MySQL", "MongoDB", "Redis", "SQL Server",
-      "DynamoDB", "Snowflake", "Firebase",
+      "PostgreSQL", "MySQL", "MongoDB", "Redis",
+      "Firebase", "Snowflake",
       "Pinecone", "pgvector", "Vector Search",
     ],
   },
   {
-    label: "AI & ML",
+    label: "AI & Developer Productivity",
     skills: [
-      "LLM Integration", "OpenAI", "Anthropic", "AWS Bedrock",
-      "RAG Concepts", "Embedding-Based Retrieval",
-      "AI-Powered Workflows", "Anomaly Detection",
+      "LLM-Assisted Development", "AI-Supported Testing",
+      "Prompt Engineering", "Workflow Automation",
+      "OpenAI", "Anthropic", "RAG Concepts",
     ],
   },
   {
     label: "Testing & Quality",
     skills: [
       "Jest", "React Testing Library", "Cypress", "Playwright",
-      "Pytest", "RSpec", "xUnit", "NUnit", "Minitest",
-      "Unit Testing", "Integration Testing", "E2E Testing",
-      "Code Reviews", "SOLID Principles", "Clean Code", "Design Patterns",
+      "Pytest", "Unit Testing", "Integration Testing", "E2E Testing",
+      "TDD", "Regression Prevention",
     ],
   },
   {
     label: "Architecture & Patterns",
     skills: [
       "Distributed Systems", "Event-Driven Design", "API Design",
-      "Multi-Tenant Architecture", "SOA", "Domain-Driven Design",
-      "Real-Time Services", "Observability", "Performance Tuning",
-      "Integration Frameworks", "Secure Coding",
+      "Scalability Patterns", "Reliability Engineering",
+      "Serverless Architecture", "Domain-Driven Design",
     ],
   },
   {
-    label: "Tools & Platforms",
+    label: "Tools & Workflows",
     skills: [
-      "Git", "GitHub", "Jira", "Asana", "Stripe", "SendGrid", "Twilio",
-      "OpenSearch", "Elasticsearch", "Application Insights",
-      "Agile/Scrum", "SEO Fundamentals",
+      "Git", "GitHub", "Linear", "Jira", "Asana",
+      "Stripe", "SendGrid", "Twilio", "Figma",
     ],
   },
   {
-    label: "Leadership",
+    label: "Leadership & Process",
     skills: [
       "Technical Leadership", "Team Mentoring", "Cross-Functional Communication",
-      "Technical Planning", "Product-Driven Development", "Architectural Decision-Making",
-      "Code Reviews", "System Ownership", "Onboarding & Knowledge Transfer",
+      "Technical Planning", "Product-Focused Execution", "Ownership Mindset",
+      "Agile/Scrum", "Sprint Planning", "Iterative Delivery",
     ],
   },
 ];

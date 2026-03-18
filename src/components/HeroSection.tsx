@@ -59,7 +59,7 @@ const HeroSection = () => {
             transition={{ delay: 1 }}
           >
             <a
-              href="https://www.linkedin.com/in/dylan-apple-474bb33aa"
+              href="https://www.linkedin.com/in/appleby-parker-dylan/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
