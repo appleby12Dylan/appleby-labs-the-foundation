@@ -19,7 +19,7 @@ const FooterSection = () => {
                 <p className="font-display font-bold text-foreground">
                   Bachelor of Science in Computer Science
                 </p>
-                <p className="text-sm text-muted-foreground">Rice University · May 2018</p>
+                <p className="text-sm text-muted-foreground">Rice University · May 2017</p>
               </div>
             </div>
           </motion.div>
