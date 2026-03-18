@@ -19,7 +19,7 @@ const FooterSection = () => {
                 <p className="font-display font-bold text-foreground">
                   Bachelor of Science in Computer Science
                 </p>
-                <p className="text-sm text-muted-foreground">Rice University · May 2018</p>
+                <p className="text-sm text-muted-foreground">Rice University · May 2017</p>
               </div>
             </div>
           </motion.div>
@@ -40,7 +40,7 @@ const FooterSection = () => {
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground mb-10">
               <a
-                href="https://www.linkedin.com/in/dylan-apple-474bb33aa"
+                href="https://www.linkedin.com/in/appleby-parker-dylan/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-primary transition-colors"

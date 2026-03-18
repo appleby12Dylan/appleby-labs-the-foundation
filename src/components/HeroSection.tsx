@@ -24,7 +24,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Engineering Leadership · Platform Architecture · Scalable Systems
+            Full-Stack Engineering · Healthcare · ESG · Mobility
           </motion.p>
 
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-900 tracking-tight mb-6">
@@ -47,8 +47,9 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            Senior Software Engineer & Team Lead with nearly 10 years building scalable platforms,
-            event-driven architectures, and unified systems that empower entire engineering organizations.
+            Senior Full-Stack Engineer with 9 years of experience building scalable web and mobile
+            applications in healthcare, mobility, and ESG. Specializing in Python, React, Next.js, TypeScript,
+            and cloud-native technologies like AWS, Terraform, Docker, and Kubernetes.
           </motion.p>
 
           <motion.div
@@ -58,7 +59,7 @@ const HeroSection = () => {
             transition={{ delay: 1 }}
           >
             <a
-              href="https://www.linkedin.com/in/dylan-apple-474bb33aa"
+              href="https://www.linkedin.com/in/appleby-parker-dylan/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-primary transition-colors duration-300"

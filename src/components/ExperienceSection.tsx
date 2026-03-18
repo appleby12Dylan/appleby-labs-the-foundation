@@ -9,54 +9,127 @@ import spotheroParking from "@/assets/spothero-parking.jpg";
 import spotheroCity from "@/assets/spothero-city.jpg";
 import spotheroGarage from "@/assets/spothero-garage.jpg";
 import spotheroAerial from "@/assets/spothero-aerial.jpg";
-import ArchitectureDiagram from "./ArchitectureDiagram";
+import pearsuiteImg from "@/assets/pearsuite-dashboard.jpg";
+import pearsuiteChw from "@/assets/pearsuite-chw.jpg";
+import pearsuiteClinic from "@/assets/pearsuite-clinic.jpg";
+import pearsuiteTeam from "@/assets/pearsuite-team.jpg";
+import pearsuiteAnalytics from "@/assets/pearsuite-analytics.jpg";
+import ArchitectureDiagram, { DiagramNode } from "./ArchitectureDiagram";
 import { ExternalLink } from "lucide-react";
 
-const uprightNodes = [
+const uprightNodes: DiagramNode[] = [
   {
-    title: "Dealership Source Systems",
-    subtitle: "Service, parts, sales, inventory, CRM",
+    title: "External Data Sources",
+    subtitle: "Public company data, ESG disclosures, financial reports",
   },
   {
-    title: "Data Ingestion Layer",
-    items: ["Normalizes inputs", "Handles sync + events"],
+    title: "Data Collection & Normalization Pipeline",
+    items: ["Collects public company data", "Normalizes inputs for modeling"],
   },
   {
-    title: "Platform Service Foundation",
+    title: "Structured Data Repository",
+    items: ["Company profiles", "Impact metadata", "JSON-based structured storage"],
+  },
+  {
+    title: "Impact Modeling Engine",
     isHighlighted: true,
     items: [
-      "Multi-tenant service layer",
-      "Authorization + identity flows",
-      "Data-orchestration pipelines",
-      "Cross-team shared backend logic",
-      "Event-driven workflow engine",
+      "Environmental impact scoring",
+      "Social impact evaluation",
+      "Financial risk evaluation",
     ],
   },
   {
-    title: "Unified Frontend Framework",
+    title: "Materiality Assessment Engine",
     isHighlighted: true,
     items: [
-      "Component system + UI standards",
-      "Routing patterns for all product teams",
-      "Shared layout + design primitives",
+      "Impact materiality logic",
+      "Financial materiality analysis",
+      "Automated scoring pipelines",
     ],
   },
   {
-    title: "Downstream Product Teams",
-    subtitle: "Technician tools, dashboards, reporting, workflows",
-    items: [
-      "Build features on top of platform foundation",
-      "Reuse shared components + APIs",
-      "Rely on data pipelines + stability improvements",
+    type: "parallel",
+    nodes: [
+      {
+        title: "Async Processing Queue",
+        items: ["Job orchestration", "Redis caching"],
+      },
+      {
+        title: "Assessment Data Storage",
+        items: ["Audit-ready data", "PostgreSQL"],
+      },
     ],
   },
   {
-    title: "Dealership Users & Staff",
-    subtitle: "Technicians, managers, service teams",
+    title: "Reporting Engine",
+    isHighlighted: true,
+    items: ["CSRD structured reports", "Materiality reports"],
+  },
+  {
+    title: "Interactive Dashboard",
+    subtitle: "Impact insights, risk visualization, stakeholder reporting",
   },
 ];
 
-const spotheroNodes = [
+const pearsuiteNodes: DiagramNode[] = [
+  {
+    title: "Healthcare Users",
+    subtitle: "CHWs, clinicians, doulas, care teams",
+  },
+  {
+    title: "Care Management Web Platform",
+    items: ["Screening forms", "Patient profiles"],
+  },
+  {
+    title: "SDOH Screening Engine",
+    isHighlighted: true,
+    items: [
+      "Dynamic assessments",
+      "Conditional workflows",
+      "Role-based access control",
+    ],
+  },
+  {
+    title: "Care Plan Management",
+    isHighlighted: true,
+    items: ["Service referrals", "Task coordination", "Multi-role access"],
+  },
+  {
+    type: "parallel",
+    nodes: [
+      {
+        title: "Real-Time Sync",
+        isHighlighted: true,
+        items: ["Team collaboration", "Activity updates"],
+      },
+      {
+        title: "Integration Gateway",
+        isHighlighted: true,
+        items: ["EMR/EHR systems", "Partner platforms"],
+      },
+    ],
+  },
+  {
+    type: "parallel",
+    nodes: [
+      {
+        title: "Patient Data Store",
+        items: ["Care records", "Screening results"],
+      },
+      {
+        title: "Billing & Claims",
+        items: ["Reimbursement flows", "Payment validation"],
+      },
+    ],
+  },
+  {
+    title: "Reporting & Analytics",
+    subtitle: "Care progress tracking, outcome reporting",
+  },
+];
+
+const spotheroNodes: DiagramNode[] = [
   {
     title: "Parking Operator Systems",
     subtitle: "Inventory feeds, garage hardware",
@@ -66,13 +139,22 @@ const spotheroNodes = [
     items: ["Availability updates", "Pricing + capacity", "Hardware signals"],
   },
   {
+    title: "Mobile Platform",
+    isHighlighted: true,
+    items: [
+      "React Native cross-platform app",
+      "QR code, NFC, license plate recognition",
+      "Android Auto & Apple CarPlay",
+      "Offline handling & background sync",
+    ],
+  },
+  {
     title: "Reservation & Availability Pipeline",
     isHighlighted: true,
     items: [
-      "Rebuilt into predictable event-driven flow",
-      "Reduced booking errors + stale inventory",
-      "Improved real-time accuracy",
-      "Stabilized high-traffic update cycles",
+      "Event-driven booking flow",
+      "Push notifications & location reminders",
+      "Real-time accuracy",
     ],
   },
   {
@@ -81,29 +163,14 @@ const spotheroNodes = [
     items: [
       "Processes incoming updates",
       "Reconciles partner data",
-      "Publishes accurate availability",
       "Supports peak-demand traffic",
     ],
   },
   {
-    title: "Internal Tools & Dashboards",
-    isHighlighted: true,
-    items: [
-      "Modernized frontend architecture",
-      "Shared components + UI consistency",
-      "Faster debugging + operational visibility",
-    ],
-  },
-  {
     title: "End Users",
-    subtitle: "Drivers booking parking",
+    subtitle: "Drivers booking parking via mobile",
   },
 ];
-
-const sectionVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
 
 const ExperienceSection = () => {
   return (
@@ -121,7 +188,7 @@ const ExperienceSection = () => {
           </h2>
         </motion.div>
 
-        {/* Upright Consulting */}
+        {/* The Upright Project */}
         <div className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,36 +198,37 @@ const ExperienceSection = () => {
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-6">
               <div>
-                <p className="text-primary text-sm tracking-wider uppercase mb-1">May 2023 – Present</p>
+                <p className="text-primary text-sm tracking-wider uppercase mb-1">Jan 2025 – Present</p>
                 <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground">
                   Engineering Team Lead
                 </h3>
                 <p className="text-lg text-muted-foreground mt-1">
                   <a
-                    href="https://www.uprightconsulting.com"
+                    href="https://www.uprightproject.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-primary transition-colors inline-flex items-center gap-1"
                   >
-                    Upright Consulting <ExternalLink size={14} />
+                    The Upright Project <ExternalLink size={14} />
                   </a>
-                  {" "}· The Upright Project
+                  {" "}· ESG & CSRD Compliance Platform
                 </p>
               </div>
             </div>
 
             <p className="text-muted-foreground max-w-3xl leading-relaxed mb-4">
-              Led a 4-person platform sub-team to build the foundational layer every product team relied on —
-              shared backend services, unified frontend systems, and cloud infrastructure. Reduced duplicated
-              engineering effort by ~40% and accelerated downstream team delivery.
+              Led full-stack delivery using TypeScript, NestJS, React, and Next.js, building scalable REST and GraphQL APIs
+              and a responsive web platform that turned Upright's scientific impact models into a shipped CSRD compliance product.
+              Designed backend data pipelines, implemented async processing with Redis caching, and architected cloud-native
+              infrastructure on AWS with Docker, Kubernetes, and Terraform.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {[
-                { metric: "~40%", label: "Less duplicated effort" },
-                { metric: "~50%", label: "Reduced deployment friction" },
-                { metric: "~30%", label: "Shorter release cycles" },
-                { metric: "4", label: "Person platform team" },
+                { metric: "~50%", label: "Faster report turnaround" },
+                { metric: "~25%", label: "Fewer post-release issues" },
+                { metric: "AWS", label: "Cloud-native infrastructure" },
+                { metric: "CSRD", label: "EU compliance product" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -177,12 +245,10 @@ const ExperienceSection = () => {
             </div>
           </motion.div>
 
-          {/* Upright visual content */}
           <div className="grid lg:grid-cols-2 gap-10 items-start">
-            {/* Images column */}
             <div className="space-y-4">
               <motion.a
-                    href="https://www.uprightproject.com"
+                href="https://www.uprightproject.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
@@ -190,88 +256,55 @@ const ExperienceSection = () => {
                 viewport={{ once: true }}
                 className="block relative rounded-xl overflow-hidden border border-border shadow-gold group hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow duration-500"
               >
-                <img
-                  src={uprightImg}
-                  alt="The Upright Project dashboard"
-                  className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-                />
+                <img src={uprightImg} alt="The Upright Project dashboard" className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                   <p className="text-sm font-display font-semibold text-white drop-shadow-lg">The Upright Project</p>
-                  <p className="text-xs text-white/70">Unified Dealership Platform</p>
+                  <p className="text-xs text-white/70">ESG & CSRD Compliance Platform</p>
                 </div>
               </motion.a>
               <div className="grid grid-cols-2 gap-4">
-                <motion.a
+                {[
+                  { src: uprightWorkflow, alt: "Service workflow tools" },
+                  { src: uprightDealership, alt: "Parts and service counter" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
                     href="https://www.uprightproject.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={uprightWorkflow}
-                    alt="Technician workflow tools"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
-                <motion.a
-                    href="https://www.uprightproject.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={uprightDealership}
-                    alt="Dealership environment"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 1) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <motion.a
+                {[
+                  { src: uprightService, alt: "Diagnostic station" },
+                  { src: uprightLot, alt: "Service reception" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
                     href="https://www.uprightproject.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={uprightService}
-                    alt="Service bay diagnostics"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
-                <motion.a
-                    href="https://www.uprightproject.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={uprightLot}
-                    alt="Dealership vehicle lot"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 3) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
               </div>
             </div>
 
-            {/* Diagram column */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -283,8 +316,8 @@ const ExperienceSection = () => {
           </div>
         </div>
 
-        {/* SpotHero */}
-        <div>
+        {/* PearSuite */}
+        <div className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -293,36 +326,37 @@ const ExperienceSection = () => {
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-6">
               <div>
-                <p className="text-primary text-sm tracking-wider uppercase mb-1">Jan 2021 – Apr 2023</p>
+                <p className="text-primary text-sm tracking-wider uppercase mb-1">Mar 2023 – Dec 2024</p>
                 <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground">
                   Senior Software Engineer
                 </h3>
                 <p className="text-lg text-muted-foreground mt-1">
                   <a
-                    href="https://spothero.com"
+                    href="https://www.pearsuite.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-primary transition-colors inline-flex items-center gap-1"
                   >
-                    SpotHero <ExternalLink size={14} />
+                    PearSuite <ExternalLink size={14} />
                   </a>
-                  {" "}· Platform Engineering
+                  {" "}· Healthcare Care Management
                 </p>
               </div>
             </div>
 
             <p className="text-muted-foreground max-w-3xl leading-relaxed mb-4">
-              Joined during a critical growth phase, owning core services and front-end systems that
-              needed to scale without breaking the business. Rebuilt key pipelines and modernized
-              the frontend architecture for the platform engineering team.
+              Shipped end-to-end SDOH screening workflows using React, Next.js, and Python (Django) with dynamic forms
+              and conditional logic. Built digital care plan modules for CHWs, doulas, and clinicians with role-based access
+              and real-time synchronization. Engineered secure RESTful and GraphQL APIs for HIPAA-compliant EMR/EHR integrations
+              and automated billing workflows.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {[
-                { metric: "~35%", label: "Reduced booking errors" },
-                { metric: "~40%", label: "Less stale inventory" },
-                { metric: "~30%", label: "Better stability at peak" },
-                { metric: "~30%", label: "Fewer deployment issues" },
+                { metric: "~25%", label: "Faster form completion" },
+                { metric: "~20%", label: "Fewer claim errors" },
+                { metric: "~30%", label: "Better report performance" },
+                { metric: "HIPAA", label: "Compliant architecture" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -339,9 +373,138 @@ const ExperienceSection = () => {
             </div>
           </motion.div>
 
-          {/* SpotHero visual content */}
+          {/* PearSuite visual content — images LEFT, diagram RIGHT */}
           <div className="grid lg:grid-cols-2 gap-10 items-start">
+            {/* Images column */}
+            <div className="space-y-4">
+              <motion.a
+                href="https://www.pearsuite.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="block relative rounded-xl overflow-hidden border border-border shadow-gold group hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow duration-500"
+              >
+                <img src={pearsuiteImg} alt="PearSuite care management dashboard" className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  <p className="text-sm font-display font-semibold text-white drop-shadow-lg">PearSuite</p>
+                  <p className="text-xs text-white/70">Healthcare Care Management Platform</p>
+                </div>
+              </motion.a>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { src: pearsuiteChw, alt: "Community health worker with patient" },
+                  { src: pearsuiteClinic, alt: "Healthcare clinic with digital check-in" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
+                    href="https://www.pearsuite.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 1) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { src: pearsuiteTeam, alt: "Healthcare team collaboration" },
+                  { src: pearsuiteAnalytics, alt: "Patient analytics dashboard" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
+                    href="https://www.pearsuite.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 3) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
             {/* Diagram column */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs text-primary tracking-widest uppercase mb-6">System Architecture</p>
+              <ArchitectureDiagram nodes={pearsuiteNodes} />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* SpotHero */}
+        <div className="mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-6">
+              <div>
+                <p className="text-primary text-sm tracking-wider uppercase mb-1">Jun 2020 – Feb 2023</p>
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                  Full-Stack Mobile Engineer
+                </h3>
+                <p className="text-lg text-muted-foreground mt-1">
+                  <a
+                    href="https://spothero.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    SpotHero <ExternalLink size={14} />
+                  </a>
+                  {" "}· Mobility & Parking Platform
+                </p>
+              </div>
+            </div>
+
+            <p className="text-muted-foreground max-w-3xl leading-relaxed mb-4">
+              Launched touchless parking workflows using React Native and TypeScript, enabling QR code scanning, NFC,
+              and license plate recognition. Extended mobile features to Android Auto and Apple CarPlay. Established
+              robust offline handling and background synchronization, cutting app load times by ~30% and reducing
+              missed reservations by ~15%.
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+              {[
+                { metric: "~30%", label: "Faster app load times" },
+                { metric: "~15%", label: "Fewer missed reservations" },
+                { metric: "React Native", label: "Cross-platform mobile" },
+                { metric: "CarPlay", label: "Android Auto + CarPlay" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="rounded-lg border border-border bg-card/50 p-4 text-center"
+                >
+                  <p className="text-2xl font-display font-bold text-primary">{stat.metric}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -351,7 +514,6 @@ const ExperienceSection = () => {
               <ArchitectureDiagram nodes={spotheroNodes} />
             </motion.div>
 
-            {/* Images column */}
             <div className="space-y-4">
               <motion.a
                 href="https://spothero.com"
@@ -362,11 +524,7 @@ const ExperienceSection = () => {
                 viewport={{ once: true }}
                 className="block relative rounded-xl overflow-hidden border border-border shadow-gold group hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow duration-500"
               >
-                <img
-                  src={spotheroImg}
-                  alt="SpotHero parking platform"
-                  className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-                />
+                <img src={spotheroImg} alt="SpotHero parking platform" className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                   <p className="text-sm font-display font-semibold text-white drop-shadow-lg">SpotHero</p>
@@ -374,92 +532,64 @@ const ExperienceSection = () => {
                 </div>
               </motion.a>
               <div className="grid grid-cols-2 gap-4">
-                <motion.a
-                  href="https://spothero.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={spotheroParking}
-                    alt="Smart parking garage"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
-                <motion.a
-                  href="https://spothero.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={spotheroCity}
-                    alt="Urban parking infrastructure"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
+                {[
+                  { src: spotheroParking, alt: "Smart parking garage" },
+                  { src: spotheroCity, alt: "Urban parking infrastructure" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
+                    href="https://spothero.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 1) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <motion.a
-                  href="https://spothero.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={spotheroGarage}
-                    alt="SpotHero parking garage"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
-                <motion.a
-                  href="https://spothero.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="block rounded-xl overflow-hidden border border-border group aspect-square"
-                >
-                  <img
-                    src={spotheroAerial}
-                    alt="Urban traffic aerial view"
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                </motion.a>
+                {[
+                  { src: spotheroGarage, alt: "SpotHero parking garage" },
+                  { src: spotheroAerial, alt: "Urban traffic aerial view" },
+                ].map((img, i) => (
+                  <motion.a
+                    key={i}
+                    href="https://spothero.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (i + 3) * 0.1 }}
+                    className="block rounded-xl overflow-hidden border border-border group aspect-square"
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500" />
+                  </motion.a>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
         {/* Earlier Experience */}
-        <div className="mt-32 grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="rounded-xl border border-border bg-card/30 p-8"
           >
-            <p className="text-primary text-sm tracking-wider uppercase mb-1">Sep 2018 – Dec 2020</p>
+            <p className="text-primary text-sm tracking-wider uppercase mb-1">Nov 2018 – Apr 2020</p>
             <h3 className="text-2xl font-display font-bold text-foreground mb-2">Software Engineer</h3>
             <p className="text-muted-foreground text-sm mb-4">Alert Logic</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Built full-stack features for customer security portals. Implemented API endpoints
-              powering log search, alert filtering, and dashboard data. Helped migrate legacy UI
-              into modern React components.
+              Maintained PHP and Python backend services, building APIs and server-side logic for enterprise
+              security monitoring. Revamped web dashboards using JavaScript, HTML, and CSS. Integrated
+              backend services with third-party APIs, reducing alert processing delays by ~20%.
             </p>
           </motion.div>
 
@@ -470,13 +600,13 @@ const ExperienceSection = () => {
             transition={{ delay: 0.1 }}
             className="rounded-xl border border-border bg-card/30 p-8"
           >
-            <p className="text-primary text-sm tracking-wider uppercase mb-1">May 2017 – Aug 2018</p>
-            <h3 className="text-2xl font-display font-bold text-foreground mb-2">Software Engineering Intern</h3>
+            <p className="text-primary text-sm tracking-wider uppercase mb-1">Apr 2016 – Oct 2018</p>
+            <h3 className="text-2xl font-display font-bold text-foreground mb-2">Software Engineer</h3>
             <p className="text-muted-foreground text-sm mb-4">PROS</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Supported pricing and revenue optimization platform development. Built full-stack features,
-              helped migrate legacy screens into React, and improved data quality for downstream
-              pricing algorithms.
+              Shaped web application features using JavaScript and TypeScript, making pricing and quoting
+              workflows faster for enterprise users. Collaborated on frontend interfaces connected to
+              backend services, reinforcing integration testing and maintainable code patterns.
             </p>
           </motion.div>
         </div>
