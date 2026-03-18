@@ -24,7 +24,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Engineering Leadership · Platform Architecture · Scalable Systems
+            Full-Stack Engineering · Healthcare · ESG · Mobility
           </motion.p>
 
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-900 tracking-tight mb-6">
