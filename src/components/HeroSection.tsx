@@ -47,8 +47,9 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            Senior Software Engineer & Team Lead with nearly 10 years building scalable platforms,
-            event-driven architectures, and unified systems that empower entire engineering organizations.
+            Senior Full-Stack Engineer with 9 years of experience building scalable web and mobile
+            applications in healthcare, mobility, and ESG. Specializing in Python, React, Next.js, TypeScript,
+            and cloud-native technologies like AWS, Terraform, Docker, and Kubernetes.
           </motion.p>
 
           <motion.div
