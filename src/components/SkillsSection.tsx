@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const skillCategories = [
   {
     label: "Languages",
-    skills: ["TypeScript", "JavaScript (ES6+)", "Python", "PHP", "SQL", "HTML5", "CSS3/SCSS"],
+    skills: ["TypeScript", "JavaScript (ES6+)", "Python", "C#", "PHP", "Ruby", "SQL", "HTML5", "CSS3/SCSS"],
   },
   {
     label: "Frontend",
