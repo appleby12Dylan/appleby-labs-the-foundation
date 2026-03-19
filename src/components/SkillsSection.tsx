@@ -18,6 +18,7 @@ const skillCategories = [
     skills: [
       "Node.js", "NestJS", "Express", "Next.js API Routes",
       "Python", "Django", "FastAPI", "PHP", "Laravel",
+      "Ruby on Rails", "C#", ".NET",
       "REST APIs", "GraphQL", "WebSockets", "Webhooks",
       "Caching Strategies",
     ],
